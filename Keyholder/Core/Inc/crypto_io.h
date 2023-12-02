@@ -4,15 +4,15 @@
 #include "main.h"
 
 
-#define CRYPTO_CMD_PASSWORD_GET_COUNT			"PASSWORD_COUNT"
-#define CRYPTO_CMD_PASSWORD_GET						"PASSWORD_GET_"
-#define CRYPTO_CMD_PASSWORD_SET						"PASSWORD_SET_"						// PASSWORD_INSERT_idx:login \t password \t comment
+#define CRYPTO_CMD_PASSWORD_GET_COUNT			"PASSWORD_COUNT"					// PASSWORD_COUNT
+#define CRYPTO_CMD_PASSWORD_GET						"PASSWORD_GET_"						// PASSWORD_GET_idx
+#define CRYPTO_CMD_PASSWORD_SET						"PASSWORD_SET_"						// PASSWORD_INSERT_idx:login:password:comment
 #define CRYPTO_CMD_PASSWORD_REMOVE				"PASSWORD_REMOVE_"				// PASSWORD_MOVE_idx Remove with shift
-#define CRYPTO_CMD_PASSWORD_APPEND				"PASSWORD_APPEND"				// PASSWORD_INSERT_idx	// create new password
-#define CRYPTO_CMD_PASSWORD_INSERT				"PASSWORD_INSERT"				// PASSWORD_INSERT_idx	// create new password
+#define CRYPTO_CMD_PASSWORD_APPEND				"PASSWORD_APPEND"				// PASSWORD_
+#define CRYPTO_CMD_PASSWORD_INSERT				"PASSWORD_INSERT"				// PASSWORD_INSERT	// create new password
 #define CRYPTO_CMD_PASSWORD_MOVE					"PASSWORD_MOVE_"					// PASSWORD_MOVE:from:to
 #define CRYPTO_CMD_PASSWORD_SWAP					"PASSWORD_SWAP_"					// PASSWORD_SWAP:firs:second
-#define CRYPTO_CMD_SAVE										"SAVE"					
+#define CRYPTO_CMD_SAVE										"SAVE"										// SAVE
 #define CRYPTO_CMD_HOTKEY_PASSWORD_SET		"HOTKEY_PASSWORD_SET_"		// HOTKEY_PASSWORD_SET_hotkey:password
 
 #define CRYPTO_REPLY_GET_PASSWORD					"PASSWORD_"

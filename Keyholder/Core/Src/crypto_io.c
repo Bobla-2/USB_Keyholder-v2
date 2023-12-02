@@ -43,16 +43,16 @@ char* crypto_io_cmd_parse( const char* cmd ){
 	return CRYPTO_REPLY_INVALID_COMMAND;
 }
 
-static char* crypto_io_cmd_save( void ){
+ char* crypto_io_cmd_save( void ){
 	crypto_save();
 }
 
-static char* crypto_io_cmd_get_password_count( void ){
+ char* crypto_io_cmd_get_password_count( void ){
 	sprintf(out_buffer, "count: %d\r\n", crypto_password_count());
 	return out_buffer;
 }
 
-static char* crypto_io_cmd_password_remove( const char* cmd ){
+ char* crypto_io_cmd_password_remove( const char* cmd ){
 	uint16_t password_number = atoi(cmd);
 	if(crypto_password_remove( password_number ) != CRYPTO_STATE_OK){
 		return CRYPTO_REPLY_ERROR;
@@ -60,7 +60,7 @@ static char* crypto_io_cmd_password_remove( const char* cmd ){
 	return CRYPTO_REPLY_OK;
 }
 
-static char* crypto_io_cmd_password_move( const char* cmd ){
+ char* crypto_io_cmd_password_move( const char* cmd ){
 	const char* first_part = cmd;
 	if(first_part  == NULL){
 		return CRYPTO_REPLY_ERROR;
@@ -79,7 +79,7 @@ static char* crypto_io_cmd_password_move( const char* cmd ){
 	return CRYPTO_REPLY_OK;
 }
 
-static char* crypto_io_cmd_password_swap( const char* cmd ){
+ char* crypto_io_cmd_password_swap( const char* cmd ){
 	const char* pass_a = cmd;
 	if(pass_a  == NULL){
 		return CRYPTO_REPLY_ERROR;
@@ -98,7 +98,7 @@ static char* crypto_io_cmd_password_swap( const char* cmd ){
 	return CRYPTO_REPLY_OK;
 }
 
-static char* crypto_io_cmd_password_insert( const char* cmd ){
+ char* crypto_io_cmd_password_insert( const char* cmd ){
 	if(cmd == NULL) return CRYPTO_REPLY_ERROR;
 	uint16_t password_number = atoi(cmd);
 	if(password_number > crypto_password_count()){
@@ -110,7 +110,7 @@ static char* crypto_io_cmd_password_insert( const char* cmd ){
 	return out_buffer;
 }
 
-static char* crypto_io_cmd_password_append( void ){
+ char* crypto_io_cmd_password_append( void ){
 	if(crypto_password_count() >= crypto_password_count_max()){
 		return CRYPTO_REPLY_ERROR;
 	}
@@ -119,7 +119,7 @@ static char* crypto_io_cmd_password_append( void ){
 	return out_buffer;
 }
 
-static char* crypto_io_cmd_set_password( const char* cmd ){
+ char* crypto_io_cmd_set_password( const char* cmd ){
 	static volatile uint32_t data;
 	
 	// Cmd check
@@ -184,7 +184,7 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 	return CRYPTO_REPLY_OK;
 }
 
-static char* crypto_io_cmd_get_password( const char* cmd ){
+ char* crypto_io_cmd_get_password( const char* cmd ){
 	if(cmd == NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
@@ -199,7 +199,7 @@ static char* crypto_io_cmd_get_password( const char* cmd ){
 	return out_buffer;
 }
 
-static char* crypto_io_cmd_hotkey_password_set( const char* cmd ){
+ char* crypto_io_cmd_hotkey_password_set( const char* cmd ){
 	if(cmd == NULL){
 		return CRYPTO_REPLY_ERROR;
 	}

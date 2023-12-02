@@ -325,7 +325,7 @@ void UI_menu_logins_draw( void ){
 	UI_menu_logins_render();
 }
 
-static void UI_menu_logins_render( void ){
+void UI_menu_logins_render( void ){
 	ssd1306_Fill(Black);
 	
 	ugl_menu_render(logins_menu);
@@ -374,7 +374,7 @@ ugl_menu_t *UI_menu_logins_constructor( int32_t ID, void* extra ){
 	return mainMenu;
 }
 
-static ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra ){
+ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra ){
 	ugl_menu_t *mainMenu = ugl_menu_constructor(0);
 	logins_submenu = mainMenu;
 	ugl_item_t *item = NULL;
